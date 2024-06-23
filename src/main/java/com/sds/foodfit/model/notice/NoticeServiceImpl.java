@@ -9,11 +9,13 @@ import org.springframework.stereotype.Service;
 import com.sds.foodfit.domain.Notice;
 import com.sds.foodfit.exception.NoticeException;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class NoticeServiceImpl implements NoticeService {
 
-	@Autowired
-	private NoticeDAO noticeDAO;
+	private final NoticeDAO noticeDAO;
 
 	@Override
 	public int getTotalCount() {

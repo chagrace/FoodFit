@@ -1,6 +1,5 @@
 package com.sds.foodfit.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,11 +7,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sds.foodfit.model.demo.DemoService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class DemoController {
 	
-	@Autowired
-	private DemoService calculatorService;
+	private final DemoService calculatorService;
 
 	@GetMapping("/demo/female-20s")
     public String femaleTwenties(@RequestParam("height") double height, @RequestParam("weight") double weight, Model model) {

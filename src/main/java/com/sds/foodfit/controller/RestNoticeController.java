@@ -3,7 +3,6 @@ package com.sds.foodfit.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -16,14 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sds.foodfit.domain.Notice;
 import com.sds.foodfit.model.notice.NoticeService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+@RequiredArgsConstructor
 @RestController
 @Slf4j
 public class RestNoticeController {
 
-	@Autowired
-	private NoticeService noticeService;
+	private final NoticeService noticeService;
 
 	@PostMapping("/notice/regist")
 	public ResponseEntity<Object> regist(@Validated @RequestBody Notice notice, BindingResult result) {
